@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#header {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+/* nav background */
+#header::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: #c1c1c1;
+  z-index: 1;
+  transition: all 300ms ease-in-out;
+}
+#header.is-on::after {
+  height: 166.4px;
+}
+#header .logo {
+  width: 20%;
+  height: 100px;
+  background-color: #ef9297;
+}
+/* nav */
+#header .nav {
+  width: 80%;
+  height: 100px;
+  background-color: #f9b294;
+}
+.nav .menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+}
+.nav .menu > li {
+  position: relative;
+}
+.nav .menu > li > a {
+  display: inline-block ;
+  padding: 10px 50px;
+  background-color: #b0b0b0;
+}
+.nav .menu > li > a:hover {
+  background-color: #696969;
+}
+/* jquery css */
+/* .nav .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: none;
+} */
+/* javascript css */
+.nav .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  z-index: 100;
+  transition: all 300ms ease-in-out;
+}
+.nav .submenu > li {
+  text-align: center;
+}
+.nav .submenu > li > a {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background-color: #c1c1c1;
+}
+.nav .submenu > li > a:hover {
+  background-color: #8f8f8f;
+}
+
+#slider {
+  width: 100%;
+  height: 300px;
+  background-color: #f1f2ca;
+}
+
+#contents {
+  display: flex;
+  width: 100%;
+}
+#contents .content1 {
+  width: 33.3333%;
+  height: 200px;
+  background-color: #c8d8b4;
+}
+#contents .content2 {
+  width: 33.3333%;
+  height: 200px;
+  background-color: #6acd95;
+}
+#contents .content3 {
+  width: 33.3333%;
+  height: 200px;
+  background-color: #8ecaee;
+}
+
+#footer {
+  display: flex;
+  width: 100%;
+}
+#footer .footer1 {
+  width: 20%;
+  height: 100px; 
+  background-color: #a9a3c7;
+}
+
+#footer .footer2 {
+  width: 80%;
+}
+#footer .footer2 .footer2-1 {
+  width: 100%;
+  height: 50px;
+  background-color: #9c8688;
+}
+
+#footer .footer2 .footer2-2 {
+  width: 100%;
+  height: 50px;
+  background-color: #c1c5c6;
+}
