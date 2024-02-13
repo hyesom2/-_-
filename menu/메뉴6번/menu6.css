@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#aside {
+  width: 200px;
+}
+#aside .logo {
+  width: 100%;
+  height: 100px;
+  background-color: #ef9297;
+}
+/* nav */
+#aside .nav {
+  width: 100%;
+  height: 750px;
+  background-color: #f9b294;
+}
+.nav .menu {
+}
+.nav .menu > li {
+  position: relative;
+}
+.nav .menu > li > a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background-color: #c0c0c0;
+}
+.nav .menu > li > a:hover {
+  background-color: #696969;
+}
+/* jquery css */
+.nav .submenu {
+  position: absolute;
+  top: 0;
+  left: 200px;
+  display: flex;
+  width: max-content;
+  z-index: 100;
+}
+/* javascript css */
+/* .nav .submenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 100;
+  transform: translateX(0);
+  opacity: 0;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+} */
+.nav .submenu > li {
+}
+.nav .submenu > li > a {
+  display: inline-block;
+  padding: 10px;
+  background: #b0b0b0;
+  white-space: nowrap;
+}
+.nav .submenu > li > a:hover {
+  background-color: #898989;
+}
+#main::before {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  content: '';
+  width: 0;
+  height: 166.4px;
+  background-color: #b0b0b0;
+  z-index: 99;
+  transition: all 300ms ease-in-out; 
+}
+#main.is-on::before {
+  width: 100%;
+}
+
+#main {
+  position: relative;
+  width: calc(100% - 200px);
+  height: 650px;
+  background-color: #d3d3d3;
+}
+
+#slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #f1f2ca;
+}
+#slider .link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 300px;
+  background-color: #c8d8b4;;
+}
+
+#banner {
+  width: 100%;
+  height: 200px;
+  background-color: #6acd95;
+}
+
+#contents {
+  width: 100%;
+  height: 250px;
+  background-color: #8ecaee;
+}
+
+#footer {
+  display: flex;
+  width: 100%;
+}
+#footer .footer1 {
+  width: 20%;
+  height: 100px;
+  background-color: #a9a3c7;
+}
+#footer .footer2 {
+  width: 60%;
+  height: 100px;
+  background-color: #9c8688;
+}
+#footer .footer3 {
+  width: 20%;
+  height: 100px;
+  background-color: #c1c5c6;
+}
