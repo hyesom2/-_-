@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹디자인기능사 팝업 유형</title>
+  <link rel="stylesheet" href="./popup.css" />
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <h1 class="logo">
+        <span class="text">로고</span>
+      </h1>
+      <nav class="nav">
+        <span class="text">메뉴</span>
+      </nav>
+    </header>
+    <!-- // header -->
+
+    <article id="slider">
+      <span class="text">이미지 슬라이드</span>
+    </article>
+    <!-- // slide -->
+
+    <main id="contents">
+      <section class="content1">
+        <span class="text">공지사항(c.1)</span>
+      </section>
+      <section class="content2">
+        <span class="text">갤러리(C.2)</span>
+      </section>
+      <section class="popup">
+        <button type="button" class="popup-button">
+          팝업 클릭!
+        </button>
+      </section>
+    </main>
+    <!-- // contents -->
+
+    <footer id="footer">
+      <div class="footer1">
+        <span class="text">로고</span>
+      </div>
+      <div class="footer2">
+        <span class="text">Copyright</span>
+      </div>
+      <div class="footer3">
+        <span class="text">패밀리사이트</span>
+      </div>
+    </footer>
+    <!-- // footer -->
+  </div>
+  <!-- // wrap -->
+
+  <div class="popup-modal">
+    <button type="button" class="close-button">X</button>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    // 1. jquery
+    // $(function(){
+    //   $('.popup-button').click(function(){
+    //     $('.popup-modal').show();
+    //   });
+    //   $('.close-button').click(function(){
+    //     $('.popup-modal').hide();
+    //   })
+    // });
+
+    // 2. javascript
+    window.onload = function(){
+      const popupButton = document.querySelector('.popup-button');
+      const popupModal = document.querySelector('.popup-modal');
+      const popupClose = document.querySelector('.close-button');
+
+      popupButton.addEventListener('click', function(){
+        popupModal.style.display = 'block';
+      });
+      popupClose.addEventListener('click', function(){
+        popupModal.style.display = 'none';
+      });
+    }
+  </script>
+</body>
+</html>
