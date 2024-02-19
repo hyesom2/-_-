@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹디자인기능사 탭메뉴 유형</title>
+  <link rel="stylesheet" href="./tab.css" />
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <h1 class="logo">
+        <span class="text">로고</span>
+      </h1>
+      <nav class="nav">
+        <span class="text">메뉴</span>
+      </nav>
+    </header>
+    <!-- // header -->
+
+    <article id="slider">
+      <span class="text">이미지 슬라이드</span>
+    </article>
+    <!-- // slide -->
+
+    <main id="contents">
+      <section class="tab-menu">
+        <div class="tab-button">
+          <ul>
+            <li class="is-active">공지사항</li>
+            <li>갤러리</li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div class="is-acitve">
+            <p>
+              <a href="#">탭 메뉴1 내용</a>
+            </p>
+            <p>
+              <a href="#">탭 메뉴1 내용</a>
+            </p>
+            <p>
+              <a href="#">탭 메뉴1 내용</a>
+            </p>
+            <p>
+              <a href="#">탭 메뉴1 내용</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="#">탭 메뉴2 내용</a>
+            </p>
+            <p>
+              <a href="#">탭 메뉴2 내용</a>
+            </p>
+            <p>
+              <a href="#">탭 메뉴2 내용</a>
+            </p>
+            <p>
+              <a href="#">탭 메뉴2 내용</a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="content2">
+        <span class="text">갤러리(C.2)</span>
+      </section>
+      <section class="content3">
+        <span class="text">배너(C.3)</span>
+      </section>
+    </main>
+    <!-- // contents -->
+
+    <footer id="footer">
+      <div class="footer1">
+        <span class="text">로고</span>
+      </div>
+      <div class="footer2">
+        <span class="text">Copyright</span>
+      </div>
+      <div class="footer3">
+        <span class="text">패밀리사이트</span>
+      </div>
+    </footer>
+    <!-- // footer -->
+  </div>
+  <!-- // wrap -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    // 1. jquery
+    $(function(){
+      let tabButton = $('.tab-button > ul > li');
+      let tabContent = $('.tab-content > div');
+      tabContent.hide().eq(0).show(); // 컨텐츠를 모두 숨기고 첫번째 컨텐츠 보여줌
+      
+      tabButton.click(function(){
+        const currentIndex = $(this).index(); // 클릭한 번호의 index 저장
+
+        $(this).addClass('is-active').siblings().removeClass('is-active'); // siblings : 형제요소
+        tabContent.eq(currentIndex).show().siblings().hide();
+      });
+    });
+
+    // // 2. javascript
+    // window.onload = function(){
+    //   const tabButton = document.querySelectorAll('.tab-button > ul > li');
+    //   const tabContent = document.querySelectorAll('.tab-content > div');
+
+    //   tabContent.forEach((content) => {
+    //     content.style.display = 'none'; // 모든 컨텐츠를 숨김
+    //   });
+    //   tabContent[0].style.display = 'block'; // 첫번째 content 보이게 설정
+
+    //   tabButton.forEach((tab, index) => {
+    //     tab.addEventListener('click', function(){
+    //       tabButton.forEach((tab) => tab.classList.remove('is-active'));
+    //       this.classList.add('is-active');
+
+    //       tabContent.forEach((content) => {
+    //         content.style.display = 'none';
+    //       });
+    //       tabContent[index].style.display = 'block';
+    //     });
+    //   });
+    // }
+  </script>
+</body>
+</html>
