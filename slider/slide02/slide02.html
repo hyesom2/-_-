@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹디자인기능사 슬라이드02 : 좌우</title>
+  <link rel="stylesheet" href="./slide02.css" />
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="header_container">
+        <h1 class="logo">
+          <span class="text">로고</span>
+        </h1>
+        <nav class="nav">
+          <span class="text">메뉴</span>
+        </nav>
+      </div>
+    </header>
+    <!-- // header -->
+
+    <article id="slider">
+      <div class="slideWrapper">
+        <div class="slide s1">
+          <img src="./images/slide01.jpg" alt="이미지 슬라이드01">
+          <span>이미지 슬라이드01</span>
+        </div>
+        <div class="slide s2">
+          <img src="./images/slide02.jpg" alt="이미지 슬라이드02">
+          <span>이미지 슬라이드02</span>
+        </div>
+        <div class="slide s3">
+          <img src="./images/slide03.jpg" alt="이미지 슬라이드03">
+          <span>이미지 슬라이드03</span>
+        </div>
+      </div>
+    </article>
+    <!-- // slider -->
+
+    <main id="contents">
+      <section class="content1">
+        <span class="text">공지사항(C.1)</span>
+      </section>
+      <section class="content2">
+        <span class="text">갤러리(C.2)</span>
+      </section>
+      <section class="content3">
+        <span class="text">배너(C.3)</span>
+      </section>
+    </main>
+    <!-- // contents -->
+
+    <footer id="footer">
+      <div class="footer_container">
+        <div class="footer1">
+          <span class="text">로고</span>
+        </div>
+        <div class="footer2">
+          <span class="text">Copyright</span>
+        </div>
+        <div class="footer3">
+          <span class="text">SNS</span>
+        </div>
+      </div>
+    </footer>
+    <!-- // footer -->
+  </div>
+  <!-- // wrap -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    // 1. jquery
+    // $(function(){
+    //   let currentIndex = 0;   //현재 이미지
+    //     $(".slideWrapper").append($(".slide").first().clone(true));  //첫번째 이미지를 복사후 마지막에 추가
+
+    //     setInterval(function(){     //3초에 한번씩 실행
+    //         currentIndex++;     //현재 이미지를 1씩 증가
+    //         $(".slideWrapper").animate({marginLeft: -currentIndex * 100 + "%"}, 600); //이미지 애니메이션
+
+    //         if(currentIndex == 3){  //마지막 이미지일때
+    //             setTimeout(function(){  // setTimeout : 한번만 실행
+    //                 $(".slideWrapper").animate({marginLeft: 0}, 0);   //애니메이션을 정지
+    //                 currentIndex = 0;   // currentIndex를 0으로 초기화
+    //             }, 700);
+    //         }
+    //     }, 3000);
+    // });
+
+
+    // 2. javascript
+    window.onload = function(){
+      let currentIndex = 0; // 현재 이미지
+      const slideWrapper = document.querySelector('.slideWrapper');
+      const slide = document.querySelectorAll('.slide');
+      const slideClone = slideWrapper.firstElementChild.cloneNode(true);
+      slideWrapper.appendChild(slideClone);
+
+      setInterval(function(){
+        currentIndex++;
+
+        slideWrapper.style.transform = 'translateX(-'+currentIndex+'00%)'; // 2번째 이미지
+        slideWrapper.style.transition = 'transform 600ms ease-in-out';
+        
+        if(currentIndex === 3) {
+          setTimeout(function(){
+            slideWrapper.style.transform = 'translateX(0)';
+            slideWrapper.style.transition = '0s'; // transition 초기화
+            currentIndex = 0; // currentIndex 초기화
+          }, 700);
+        }
+      }, 3000);
+    };
+  </script>
+</body>
+</html>
