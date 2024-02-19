@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹디자인기능사 슬라이드06 : 위아래(반응형)</title>
+  <link rel="stylesheet" href="./slide06.css" />
+</head>
+<body>
+  <div id="wrap">
+    <div id="main">
+      <header id="header">
+        <h1 class="logo">
+          <span class="text">로고</span>
+        </h1>
+        <nav class="nav">
+          <span class="text">메뉴</span>
+        </nav>
+      </header>
+      <!-- // aside -->
+
+      <section id="contents">
+        <article class="banner">
+          <span class="text">배너</span>
+        </article>
+        <article class="notice">
+          <span class="text">공지사항</span>
+        </article>
+        <article class="gallery">
+          <span class="text">갤러리</span>
+        </article>
+        <article class="link">
+          <span class="text">링크</span>
+        </article>
+      </section>
+      <!-- // main -->
+  
+      <article id="slide">
+        <div class="slideWrapper">
+          <div class="slide s1">
+            <span>이미지 슬라이드01</span>
+          </div>
+          <div class="slide s2">
+            <span>이미지 슬라이드02</span>
+          </div>
+          <div class="slide s3">
+            <span>이미지 슬라이드03</span>
+          </div>
+        </div>
+      </article>
+      <!-- // slide -->
+    </div>
+
+    <footer id="footer">
+      <div class="footer1">
+        <span class="text">로고</span>
+      </div>
+      <div class="footer2">
+        <div class="footer2-1">
+          <span class="text">하단 메뉴</span>
+        </div>
+        <div class="footer2-2">
+          <span class="text">Copyright</span>
+        </div>
+      </div>
+    </footer>
+    <!-- // footer -->
+  </div>
+  <!-- // wrap -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    // 1. jquery
+    // $(function(){
+    //   let currentIndex = 0;
+    //   $('.slideWrapper').append($('.slide').first().clone(true));
+
+    //   setInterval(function(){
+    //     currentIndex++;
+    //     $('.slideWrapper').animate({ marginTop: -currentIndex * 100 + 'vh'}, 600);
+
+    //     if(currentIndex === 3) {
+    //       setTimeout(function(){
+    //         $('.slideWrapper').animate({ marginTop: 0 }, 0);
+    //         currentIndex = 0;
+    //       }, 700);
+    //     }
+    //   }, 3000);
+    // });
+
+    // 2. javascript
+    window.onload = function(){
+      let currentIndex = 0;
+      const slideWrapper = document.querySelector('.slideWrapper');
+      const slide = document.querySelectorAll('.slide');
+      const slideClone = slideWrapper.firstElementChild.cloneNode(true);
+      slideWrapper.appendChild(slideClone);
+
+      // slideWrapper.style.transform = 'translateY(-100%)'; // 2번 이미지
+      // slideWrapper.style.transform = 'translateY(-200%)'; // 3번 이미지
+      // slideWrapper.style.transform = 'translateY(-300%)'; // 4번 이미지
+      setInterval(function(){
+        currentIndex++;
+        slideWrapper.style.transform = `translateY(-${currentIndex * 100}%)`;
+        slideWrapper.style.transition = 'transform 600ms ease-in-out';
+
+        if(currentIndex === 3){
+          setTimeout(function(){
+            slideWrapper.style.transform = 'translateY(0px)';
+            slideWrapper.style.transition = 'transform 0ms';
+            currentIndex = 0;
+          }, 700);
+        }
+      }, 3000);
+    };
+  </script>
+</body>
+</html>
