@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹디자인기능사 슬라이드05 : 좌우(반응형)</title>
+  <link rel="stylesheet" href="./slide05.css" />
+</head>
+<body>
+  <div id="wrap">
+    <aside id="aside">
+      <h1 class="logo">
+        <span class="text">로고</span>
+      </h1>
+      <nav class="nav">
+        <span class="text">메뉴</span>
+      </nav>
+    </aside>
+    <!-- // aside -->
+
+    <main id="main">
+      <article class="banner">
+        <span class="text">배너</span>
+      </article>
+      <article class="notice">
+        <span class="text">공지사항</span>
+      </article>
+      <article class="gallery">
+        <span class="text">갤러리</span>
+      </article>
+      <article class="link">
+        <span class="text">링크</span>
+      </article>
+    </main>
+    <!-- // main-->
+
+    <article id="slide">
+      <div class="slideWrapper">
+        <div class="slide s1">
+          <span>이미지 슬라이드01</span>
+        </div>
+        <div class="slide s2">
+          <span>이미지 슬라이드02</span>
+        </div>
+        <div class="slide s3">
+          <span>이미지 슬라이드03</span>
+        </div>
+      </div>
+    </article>
+    <!-- // slide -->
+
+    <footer id="footer">
+      <div class="footer1">
+        <span class="text">로고</span>
+      </div>
+      <div class="footer2">
+        <div class="footer2-1">
+          <span class="text">하단 메뉴</span>
+        </div>
+        <div class="footer2-2">
+          <span class="text">Copyright</span>
+        </div>
+      </div>
+    </footer>
+    <!-- // footer -->
+  </div>
+  <!-- // wrap -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    // 1. jquery
+    // $(function(){
+    //   let currentIndex = 0;
+    //   $('.slideWrapper').append($('.slide').first().clone());
+
+    //   setInterval(function(){
+    //     currentIndex++;
+    //     $('.slideWrapper').animate({marginLeft: -currentIndex * 100 + '%'}, 600);
+
+    //     if(currentIndex === 3) {
+    //       $('.slideWrapper').animate({marginLeft: 0}, 0);
+    //       currentIndex = 0;
+    //     }
+    //   }, 3000);
+    // });
+
+    // 2. javascript
+    window.onload = function(){
+      let currentIndex = 0;
+      const slideWrapper = document.querySelector('.slideWrapper');
+      const slide = document.querySelectorAll('.slide');
+      const slideClone = slideWrapper.firstElementChild.cloneNode(true);
+      slideWrapper.appendChild(slideClone);
+  
+      setInterval(function(){
+        currentIndex++;
+        slideWrapper.style.transition = 'all 600ms ease-in-out';
+        slideWrapper.style.marginLeft = -currentIndex * 100 +'%';
+  
+        if(currentIndex === 3) {
+          setTimeout(function(){
+            slideWrapper.style.transition = 'all 0ms';
+            slideWrapper.style.marginLeft = 0;
+            currentIndex = 0;
+          }, 700);
+        }
+      }, 3000);
+    };
+  </script>
+</body>
+</html>
